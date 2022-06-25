@@ -6,6 +6,7 @@ import com.diploma.chessing.enumeration.Square;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -15,6 +16,7 @@ import java.util.Map;
 
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 @Entity
 @Table
@@ -35,6 +37,7 @@ public class Game {
     private GameType gameType;
     private boolean hasStarted;
     private boolean hasFinished;
+    private boolean hasWinner;
     private boolean isWhiteToMove;
     private LocalTime whiteTimeLeft;
     private LocalTime blackTimeLeft;
@@ -48,6 +51,7 @@ public class Game {
         this.gameType = GameType.BLITZ;
         this.hasStarted = true;
         this.hasFinished = false;
+        this.hasWinner = false;
         this.isWhiteToMove = true;
         this.whiteTimeLeft = LocalTime.of(0,10);
         this.blackTimeLeft = LocalTime.of(0,10);
